@@ -89,7 +89,21 @@ class LL:
             while fast is not None and fast.next is not None:
                 slow = slow.next
                 fast = fast.next.next
-            return slow.value
+            return slow
+
+    def hasLoop(self):
+        if self.head==None:
+            print('ll is empty')
+        else:
+            fast = self.head
+            slow = self.head
+            while fast is not None and fast.next is not None:
+                slow = slow.next
+                fast = fast.next.next
+                if slow is fast:
+                    return True
+            return False
+
 
     def length(self):
         i=0
@@ -120,4 +134,5 @@ ll.pop()
 ll.popFirst()
 ll.remove(6)
 ll.traverse()
-print(ll.middleNode())
+#ll.tail.next=ll.middleNode()
+#print(ll.hasLoop())
